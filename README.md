@@ -13,7 +13,7 @@ This repository serves as a template for creating a Python library
 
 ## Devcontainer setup
 
-The `devcontainer.json` specification provided in the `.devcontainer` folder provides a reference environment for development and testing. The devcontainer is based on the repo-wide `Dockerfile` provided, but a devcontainer specific `Dockerfile` can also be created if the development and productions needs diverge. If development of the library requires multiple services, consider using a [docker-compose based devcontainer setup](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_use-docker-compose).
+The `devcontainer.json` specification provided in the `.devcontainer` folder provides a reference environment for development and testing. The [dev container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) needs to be installed in order to use the setup. The devcontainer is based on the repo-wide `Dockerfile` provided, but a devcontainer specific `Dockerfile` can also be created if the development and productions needs diverge. If development of the library requires multiple services, consider using a [docker-compose based devcontainer setup](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_use-docker-compose).
 
 
 ### Ruff configuration
