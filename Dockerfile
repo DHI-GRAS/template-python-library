@@ -2,11 +2,11 @@ FROM python:3.10-slim
 
 RUN apt-get update && apt-get upgrade -y
 
-WORKDIR /app/my_library
+WORKDIR /app
 
 RUN pip install -U pip
 
-COPY src /app/my_library/src
-COPY pyproject.toml /app/my_library/pyproject.toml
+COPY ./ /app
+COPY pyproject.toml /app/pyproject.toml
 
 RUN pip install .

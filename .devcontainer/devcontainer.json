@@ -4,13 +4,18 @@
     "name": "my library devcontainer",
     "context": "..",
     "dockerFile": "../Dockerfile",
+    // Load environment variables from .env file and specify name of container on host machine
     "runArgs": [
         "--env-file",
         ".env",
         "--name",
         "${localEnv:USER}_my_library_devcontainer"
     ],
+    // Install git to allow SC support in VSC and editable install of package to keep
+    // python installation of package up-to-date with source code
     "postCreateCommand": "apt-get install git -y && pip install -e .",
+    // Specify the git repository as safe to supress warnings
+    "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -24,7 +29,9 @@
                 "editor.formatOnSave": true,
                 "[python]": {
                     "editor.formatOnSave": true,
+                    "editor.defaultFormatter": "ms-python.black-formatter",
                     "editor.codeActionsOnSave": {
+                        // Run ruff on save to fix all fixable issues and imports
                         "source.fixAll": true,
                         "source.organizeImports": true
                     }
