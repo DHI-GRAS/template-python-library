@@ -1,0 +1,35 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/docker-existing-dockerfile
+{
+    "name": "my library devcontainer",
+    "context": "..",
+    "dockerFile": "../Dockerfile",
+    "runArgs": [
+        "--env-file",
+        ".env",
+        "--name",
+        "${localEnv:USER}_my_library_devcontainer"
+    ],
+    "postCreateCommand": "apt-get install git -y && pip install -e .",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "GitHub.vscode-pull-request-github",
+                "charliermarsh.ruff",
+                "ms-python.black-formatter",
+                "tamasfe.even-better-toml"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": true,
+                        "source.organizeImports": true
+                    }
+                }
+            }
+        }
+    }
+}
